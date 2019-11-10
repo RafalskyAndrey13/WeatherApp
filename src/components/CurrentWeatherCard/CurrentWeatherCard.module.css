@@ -1,0 +1,26 @@
+.wrapper {
+    color: white;
+    text-align: center;
+    background-color: #8236e2;
+    margin: 30px 60px;
+    padding: 10px;
+}
+
+.wrapper h1 {
+    font-size: 40px;
+    font-weight: normal;
+}
+
+.main {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.main img {
+    width: 150px;
+    height: 150px;
+}
+
+.description {
+    font-size: 24px;
+}

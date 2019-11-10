@@ -1,0 +1,27 @@
+.search_header {
+    color: #d6d7ff;
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 30px;
+}
+
+.search_form {
+    display: flex;
+    align-items: flex-start;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.search_form button {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, .3);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    transition: background-color .3s linear;
+}
+
+.search_form button:hover{
+    background-color: #8236e2;
+    cursor: pointer;
+}
