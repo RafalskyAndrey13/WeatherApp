@@ -21,7 +21,6 @@ const ReduxSearchForm = reduxForm({form: 'search_by_city_form'})(SearchForm);
 
 const Search = (props) => {
     const handleSubmit = (formData) => {
-        console.log('hello');
         props.requestCurrentWeatherByCity(formData.search_city);
     };
 

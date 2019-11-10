@@ -9,22 +9,30 @@ import {connect} from 'react-redux';
 import Preloader from "./components/common/Preloader/Preloader";
 import withLocation from "./hoc/withLocation";
 import WeatherInfo from "./components/WeatherInfo/WeatherInfo";
+import {BrowserRouter, Route} from 'react-router-dom';
+import Statistics from "./components/Statistics/Statistics";
 
 const App = (props) => (
-    <div className="App">
-        <Helmet bodyAttributes={{
-            style: 'background: linear-gradient(to right, #0b0b5d 0%, #37247d 100%); ' +
-                'height: 100vh'
+    <BrowserRouter>
+        <Route exact path='/' render={() => <div className="App">
+            <Search/>
+            {props.initialized ? <WeatherInfo/> : <Preloader/>}
+        </div>}/>
+        <Route exact path='/statistics/:year/:month/:day' render={() => {
+            return <Statistics/>
         }}/>
-        <Search/>
-        {props.initialized ? <WeatherInfo/> : <Preloader/>}
-    </div>
-)
+    </BrowserRouter>
+);
 
 
 const mapStateToProps = (state) => ({
     initialized: state.app.initialized
 });
+
+
+export default compose(withProvider,
+    connect(mapStateToProps, {onLocationChanged: initializeApp}),
+    withLocation)(App);
 
 // const withLocationInfo = connect(null, {onLocationChanged: initializeApp})(withLocation(App));
 
@@ -33,6 +41,11 @@ const mapStateToProps = (state) => ({
     connect(null, {onLocationChanged: initializeApp}),
     withLocation)(App);*/
 
-export default compose(withProvider,
-    connect(mapStateToProps, {onLocationChanged: initializeApp}),
-    withLocation)(App);
+{/*<Helmet bodyAttributes={{*/
+}
+{/*    style: 'background: linear-gradient(to right, #0b0b5d 0%, #37247d 100%); ' +*/
+}
+{/*        'height: 100vh'*/
+}
+{/*}}/>*/
+}

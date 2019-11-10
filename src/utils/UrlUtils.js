@@ -11,3 +11,12 @@ export const getStringDate = (time) => {
     const date = new Date(time*1000);
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
 };
+
+export const getDateForUrl = (time) => {
+    const date = new Date(time*1000);
+    return {
+        year: date.getFullYear(),
+        month: date.getMonth() + 1,
+        day: date.getDate()
+    }
+}

@@ -7,6 +7,10 @@
     transition: all .3s linear;
 }
 
+a {
+    text-decoration: none;
+}
+
 .wrapper:hover{
     cursor: pointer;
     box-shadow: 3px 3px 10px 0 #111111;
