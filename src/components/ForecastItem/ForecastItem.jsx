@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ForecastItem.module.css';
-import {getDateForUrl, getStringDate, getStringTime, getWeatherImageUrl} from "../../utils/UrlUtils";
+import {getDateForUrl, getStringDateWithTimestamp, getStringTime, getWeatherImageUrl} from "../../utils/UrlUtils";
 import AdditionalWeatherInfo from "../AdditionalWeatherInfo/AdditionalWeatherInfo";
 import {NavLink} from "react-router-dom";
 
@@ -11,7 +11,7 @@ export const ForecastItem = (props) => {
         <NavLink to={url}>
             <div className={styles.wrapper}>
                 <section className={styles.date}>
-                    <p className={styles.date_info}>{getStringDate(props.date)}</p>
+                    <p className={styles.date_info}>{getStringDateWithTimestamp(props.date)}</p>
                     <p>{getStringTime(props.date)}</p>
                 </section>
                 <section className={styles.main}>

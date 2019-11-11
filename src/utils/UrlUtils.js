@@ -7,9 +7,17 @@ export const getStringTime = (time) => {
     return `${date.getHours()}:00`
 };
 
-export const getStringDate = (time) => {
+export const getTime = (time) => {
+    return new Date(time*1000).getHours();
+};
+
+export const getStringDateWithTimestamp = (time) => {
     const date = new Date(time*1000);
-    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+    return getStringDate(date.getFullYear(), date.getMonth(), date.getDate());
+};
+
+export const getStringDate = (year, month, day) => {
+    return `${day}/${month}/${year}`;
 };
 
 export const getDateForUrl = (time) => {
@@ -19,4 +27,4 @@ export const getDateForUrl = (time) => {
         month: date.getMonth() + 1,
         day: date.getDate()
     }
-}
+};

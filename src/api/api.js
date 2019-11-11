@@ -27,7 +27,7 @@ export const forecastAPI = {
             .then(response => response.data);
     },
     getForecastByCoords(latitude, longitude) {
-        return instance.get(`forecast/?lat=${latitude}&lon=${longitude}&appid=${API_KEY}`)
+        return instance.get(`forecast/?lat=${latitude}&units=metric&lon=${longitude}&appid=${API_KEY}`)
             .then(response => response.data);
     }
 };
