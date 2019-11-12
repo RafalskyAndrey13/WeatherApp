@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/WeatherIt/static/css/main.79beb295.chunk.css",
+    "main.js": "/WeatherIt/static/js/main.16d251e4.chunk.js",
+    "main.js.map": "/WeatherIt/static/js/main.16d251e4.chunk.js.map",
+    "runtime-main.js": "/WeatherIt/static/js/runtime-main.b2b57d18.js",
+    "runtime-main.js.map": "/WeatherIt/static/js/runtime-main.b2b57d18.js.map",
+    "static/css/2.2ebd2838.chunk.css": "/WeatherIt/static/css/2.2ebd2838.chunk.css",
+    "static/js/2.369773a3.chunk.js": "/WeatherIt/static/js/2.369773a3.chunk.js",
+    "static/js/2.369773a3.chunk.js.map": "/WeatherIt/static/js/2.369773a3.chunk.js.map",
+    "index.html": "/WeatherIt/index.html",
+    "precache-manifest.96a2885e4aed0936ca07980ef11771ad.js": "/WeatherIt/precache-manifest.96a2885e4aed0936ca07980ef11771ad.js",
+    "service-worker.js": "/WeatherIt/service-worker.js",
+    "static/css/2.2ebd2838.chunk.css.map": "/WeatherIt/static/css/2.2ebd2838.chunk.css.map",
+    "static/css/main.79beb295.chunk.css.map": "/WeatherIt/static/css/main.79beb295.chunk.css.map",
+    "static/media/preloader.svg": "/WeatherIt/static/media/preloader.67b363f4.svg",
+    "static/media/slick-theme.css": "/WeatherIt/static/media/slick.f97e3bbf.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b2b57d18.js",
+    "static/css/2.2ebd2838.chunk.css",
+    "static/js/2.369773a3.chunk.js",
+    "static/css/main.79beb295.chunk.css",
+    "static/js/main.16d251e4.chunk.js"
+  ]
+}
