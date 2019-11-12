@@ -30,11 +30,20 @@ export const forecastReducer = (state=initialState, action) => {
 export const setForecast = (forecast) => ({type: SET_FORECAST, forecast});
 const toggleFetching = () => ({type: TOGGLE_FETCHING});
 
-export const requestForecast = (cityName) => {
+export const requestForecast = (info) => {
     return async (dispatch) => {
+        console.log('request forecast');
         dispatch(toggleFetching());
-        const data = await forecastAPI.getForecastByCityName(cityName);
-        dispatch(setForecast(data.list));
+        let resp;
+        switch(info.type){
+            case 'CITY_NAME':
+                resp = await forecastAPI.getForecastByCityName(info.cityName);
+                break;
+            case 'LOCATION':
+                resp = await forecastAPI.getForecastByCoords(info.lat, info.lon);
+                break;
+        }
+        dispatch(setForecast(resp.list));
         dispatch(toggleFetching());
     }
 };

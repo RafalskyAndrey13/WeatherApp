@@ -1,5 +1,6 @@
-import {currentWeatherOneLocAPI, forecastAPI} from '../../api/api';
+import {currentWeatherOneLocAPI} from '../../api/api';
 import {requestForecast} from "./forecast-reducer";
+import {stopSubmit} from "redux-form";
 
 const SET_CURRENT_WEATHER = 'SET_CURRENT_WEATHER';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
@@ -22,7 +23,7 @@ const initialState = {
     isFetching: false
 };
 
-export const currentWeatherReducer = (state=initialState, action) => {
+export const currentWeatherReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_CURRENT_WEATHER:
             return {
@@ -55,12 +56,28 @@ export const currentWeatherReducer = (state=initialState, action) => {
 const toggleIsFetching = () => ({type: TOGGLE_IS_FETCHING});
 export const setCurrentWeather = (data) => ({type: SET_CURRENT_WEATHER, data});
 
-export const requestCurrentWeatherByCity = (cityName) => {
+
+export const requestCurrentWeather = (info) => {
     return async (dispatch) => {
         dispatch(toggleIsFetching());
-        const data = await currentWeatherOneLocAPI.getWeatherByCityName(cityName);
-        dispatch(requestForecast(cityName));
-        dispatch(setCurrentWeather(data));
+        let response;
+        switch (info.type) {
+            case 'CITY_NAME':
+                response = await currentWeatherOneLocAPI.getWeatherByCityName(info.cityName);
+                break;
+            case 'LOCATION':
+                response = await currentWeatherOneLocAPI.getWeatherByCoords(info.lat, info.lon);
+                break;
+        }
+        if (response.cod && response.cod === '404') {
+            dispatch(stopSubmit("search_by_city_form", {_error: response.message}));
+        } else if (response.error_message) {
+            dispatch(stopSubmit("search_by_city_form", {_error: response.error_message}));
+        } else {
+            dispatch(setCurrentWeather(response));
+            dispatch(requestForecast(info));
+        }
         dispatch(toggleIsFetching());
     }
+
 };

@@ -13,11 +13,31 @@ const instance = axios.create({
 export const currentWeatherOneLocAPI = {
     getWeatherByCityName(cityName) {
         return instance.get(`weather?q=${cityName}&appid=${API_KEY}&units=metric`)
-            .then(response => response.data);
+            .then(response => response.data)
+            .catch((error) => {
+                if (error.response){
+                    return error.response.data;
+                }else if (error.request){
+                    console.log('Request was made: ' + error.request + ' but no response');
+                    return {error_message: "Someting wrong. Please, check your connection."};
+                }else{
+                    console.log('Error: ' + error);
+                }
+            });
     },
     getWeatherByCoords(latitude, longitude) {
         return instance.get(`weather?appid=${API_KEY}&units=metric&lat=${latitude}&lon=${longitude}`)
-            .then(response => response.data);
+            .then(response => response.data)
+            .catch((error) => {
+                if (error.response){
+                    return error.response.data;
+                }else if (error.request){
+                    console.log('Request was made: ' + error.request + ' but no response');
+                    return {error_message: "Someting wrong. Please, check your connection."};
+                }else{
+                    console.log('Error: ' + error);
+                }
+            });
     }
 };
 

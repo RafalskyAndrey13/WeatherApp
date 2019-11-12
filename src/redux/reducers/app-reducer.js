@@ -1,6 +1,5 @@
-import {currentWeatherOneLocAPI, forecastAPI} from '../../api/api';
-import {setCurrentWeather} from './current-weather-reducer';
-import {setForecast} from "./forecast-reducer";
+import {requestCurrentWeather} from './current-weather-reducer';
+import {byLocationCreator} from "../../utils/WeatherDataTypeCreator";
 
 const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
 
@@ -13,7 +12,7 @@ export const appReducer = (state=initialState, action) => {
         case INITIALIZED_SUCCESS:
             return {
                 ...state,
-                initialized: true
+                initialized: !state.initialized
             };
         default:
             return state;
@@ -22,10 +21,7 @@ export const appReducer = (state=initialState, action) => {
 
 const setInitializedSuccess = () => ({type: INITIALIZED_SUCCESS});
 
-export const initializeApp = (latitude, longitude) => async (dispatch) => {
-    const data = await currentWeatherOneLocAPI.getWeatherByCoords(latitude, longitude);
-    const forecast = await forecastAPI.getForecastByCoords(latitude, longitude);
-    dispatch(setCurrentWeather(data));
-    dispatch(setForecast(forecast.list));
+export const initializeApp = (latitude, longitude) => (dispatch) => {
+    dispatch(requestCurrentWeather(byLocationCreator(latitude, longitude)));
     dispatch(setInitializedSuccess());
 };

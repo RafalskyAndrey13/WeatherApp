@@ -14,8 +14,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 class Statistics extends React.Component {
 
-
-
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         return this.props.forecast !== nextProps.forecast ||
             this.props.initialized !== nextProps.initialized;
