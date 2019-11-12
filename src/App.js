@@ -14,7 +14,7 @@ import Statistics from "./components/Statistics/Statistics";
 
 const App = (props) => (
     <div>
-        <BrowserRouter basename='https://weatherit.herokuapp.com/'>
+        <BrowserRouter basename='https://rafalskyandrey13.github.io/WeatherApp/'>
             <Route exact path='/' render={() => <div className="App">
                 <Search/>
                 {props.initialized ? <WeatherInfo/> : <Preloader/>}
