@@ -13,13 +13,13 @@ import {BrowserRouter, HashRouter, Route} from 'react-router-dom';
 import Statistics from "./components/Statistics/Statistics";
 
 const App = (props) => (
-    <HashRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Route exact path='/' render={() => <div className="App">
             <Search/>
             {props.initialized ? <WeatherInfo/> : <Preloader/>}
         </div>}/>
         <Route exact path='/statistics/:year/:month/:day' render={() => <Statistics initialized={props.initialized}/>}/>
-    </HashRouter>
+    </BrowserRouter>
 );
 
 
