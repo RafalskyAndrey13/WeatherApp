@@ -12,6 +12,7 @@ const StatisticItem = (props) => {
             '#FFF5EE'
         ]);
 
+    console.log(props.data);
     let sorted = props.data.sort((first, second) => first.y - second.y);
     const min = sorted[0].y;
     const max = sorted[sorted.length - 1].y;
@@ -40,7 +41,7 @@ const StatisticItem = (props) => {
             borderColor: 'white',
             contentFormatter: function (e) {
                 const data = e.entries[0].dataPoint;
-                return `<div style="text-align: center">${data.x} hours<br/>Temperature: ${data.y} ${props.metric}</div>`
+                return `<div style="text-align: center">${data.x} hours<br/>${props.axisY}: ${data.y} ${props.metric}</div>`
 
             }
         },

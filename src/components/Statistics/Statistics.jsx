@@ -21,6 +21,10 @@ class Statistics extends React.Component {
 
 
     render() {
+        if (this.props.forecast.length === 0){
+            return <Preloader/>
+        }
+
         const settings = {
             dots: true,
             arrows: false,
@@ -57,7 +61,6 @@ class Statistics extends React.Component {
             ]
         };
 
-        console.log('render');
         if (!this.props.initialized) {
             return <Preloader/>
         }
@@ -84,7 +87,7 @@ class Statistics extends React.Component {
                 </header>
                 <div className={styles.stat_container}>
                     <Slider {...settings}>
-                    <StatisticItem date={dateProp} label='Temperature Statistics' axisY='Degrees' metric='°C'
+                    <StatisticItem date={dateProp} label='Temperature Statistics' axisY='Temperature' metric='°C'
                                    data={statistics.tempData}/>
                     <StatisticItem date={dateProp} label='Pressure Statistics' axisY='Pressure' metric='hPa'
                                    data={statistics.pressureData}/>
@@ -104,7 +107,6 @@ class Statistics extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('mapState');
     return {
         forecast: getForecast(state)
     }

@@ -9,17 +9,17 @@ import {connect} from 'react-redux';
 import Preloader from "./components/common/Preloader/Preloader";
 import withLocation from "./hoc/withLocation";
 import WeatherInfo from "./components/WeatherInfo/WeatherInfo";
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, HashRouter, Route} from 'react-router-dom';
 import Statistics from "./components/Statistics/Statistics";
 
 const App = (props) => (
-    <BrowserRouter>
+    <HashRouter>
         <Route exact path='/' render={() => <div className="App">
             <Search/>
             {props.initialized ? <WeatherInfo/> : <Preloader/>}
         </div>}/>
         <Route exact path='/statistics/:year/:month/:day' render={() => <Statistics initialized={props.initialized}/>}/>
-    </BrowserRouter>
+    </HashRouter>
 );
 
 

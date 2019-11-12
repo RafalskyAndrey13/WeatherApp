@@ -11,7 +11,6 @@ const initialState = {
 export const forecastReducer = (state=initialState, action) => {
     switch (action.type) {
         case SET_FORECAST:
-            console.log(action.forecast);
             return {
                 ...state,
                 forecast: action.forecast
@@ -32,7 +31,6 @@ const toggleFetching = () => ({type: TOGGLE_FETCHING});
 
 export const requestForecast = (info) => {
     return async (dispatch) => {
-        console.log('request forecast');
         dispatch(toggleFetching());
         let resp;
         switch(info.type){
