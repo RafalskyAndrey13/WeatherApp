@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/WeatherIt/static/css/main.79beb295.chunk.css",
-    "main.js": "/WeatherIt/static/js/main.16d251e4.chunk.js",
-    "main.js.map": "/WeatherIt/static/js/main.16d251e4.chunk.js.map",
-    "runtime-main.js": "/WeatherIt/static/js/runtime-main.b2b57d18.js",
-    "runtime-main.js.map": "/WeatherIt/static/js/runtime-main.b2b57d18.js.map",
-    "static/css/2.2ebd2838.chunk.css": "/WeatherIt/static/css/2.2ebd2838.chunk.css",
-    "static/js/2.369773a3.chunk.js": "/WeatherIt/static/js/2.369773a3.chunk.js",
-    "static/js/2.369773a3.chunk.js.map": "/WeatherIt/static/js/2.369773a3.chunk.js.map",
-    "index.html": "/WeatherIt/index.html",
-    "precache-manifest.96a2885e4aed0936ca07980ef11771ad.js": "/WeatherIt/precache-manifest.96a2885e4aed0936ca07980ef11771ad.js",
-    "service-worker.js": "/WeatherIt/service-worker.js",
-    "static/css/2.2ebd2838.chunk.css.map": "/WeatherIt/static/css/2.2ebd2838.chunk.css.map",
-    "static/css/main.79beb295.chunk.css.map": "/WeatherIt/static/css/main.79beb295.chunk.css.map",
-    "static/media/preloader.svg": "/WeatherIt/static/media/preloader.67b363f4.svg",
-    "static/media/slick-theme.css": "/WeatherIt/static/media/slick.f97e3bbf.svg"
+    "main.css": "/WeatherApp/static/css/main.79beb295.chunk.css",
+    "main.js": "/WeatherApp/static/js/main.900afa59.chunk.js",
+    "main.js.map": "/WeatherApp/static/js/main.900afa59.chunk.js.map",
+    "runtime-main.js": "/WeatherApp/static/js/runtime-main.08009c29.js",
+    "runtime-main.js.map": "/WeatherApp/static/js/runtime-main.08009c29.js.map",
+    "static/css/2.1fce276f.chunk.css": "/WeatherApp/static/css/2.1fce276f.chunk.css",
+    "static/js/2.369773a3.chunk.js": "/WeatherApp/static/js/2.369773a3.chunk.js",
+    "static/js/2.369773a3.chunk.js.map": "/WeatherApp/static/js/2.369773a3.chunk.js.map",
+    "index.html": "/WeatherApp/index.html",
+    "precache-manifest.ae2eb0d2b0970b88c4a6a22308764aa8.js": "/WeatherApp/precache-manifest.ae2eb0d2b0970b88c4a6a22308764aa8.js",
+    "service-worker.js": "/WeatherApp/service-worker.js",
+    "static/css/2.1fce276f.chunk.css.map": "/WeatherApp/static/css/2.1fce276f.chunk.css.map",
+    "static/css/main.79beb295.chunk.css.map": "/WeatherApp/static/css/main.79beb295.chunk.css.map",
+    "static/media/preloader.svg": "/WeatherApp/static/media/preloader.67b363f4.svg",
+    "static/media/slick-theme.css": "/WeatherApp/static/media/slick.f97e3bbf.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.b2b57d18.js",
-    "static/css/2.2ebd2838.chunk.css",
+    "static/js/runtime-main.08009c29.js",
+    "static/css/2.1fce276f.chunk.css",
     "static/js/2.369773a3.chunk.js",
     "static/css/main.79beb295.chunk.css",
-    "static/js/main.16d251e4.chunk.js"
+    "static/js/main.900afa59.chunk.js"
   ]
 }
