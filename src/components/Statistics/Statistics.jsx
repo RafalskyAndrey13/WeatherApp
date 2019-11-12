@@ -6,7 +6,7 @@ import {getForecast} from "../../redux/selectors/forecast-selectors";
 import {connect} from "react-redux";
 import Preloader from "../common/Preloader/Preloader";
 import StatisticItem from "../StatisticItem/StatisticItem";
-import {getStringDate, getTime} from "../../utils/UrlUtils";
+import {getDateForUrl, getStringDate, getTime} from "../../utils/UrlUtils";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -21,7 +21,7 @@ class Statistics extends React.Component {
 
 
     render() {
-        if (this.props.forecast.length === 0){
+        if (this.props.forecast.length === 0) {
             return <Preloader/>
         }
 
@@ -73,7 +73,10 @@ class Statistics extends React.Component {
             cloudsData: data.map(item => ({time: getTime(item.dt), value: item.clouds.all}))
         });
 
-        const {day, month, year} = this.props.match.params;
+        const {day, month, year} = this.props.match.params.length === 0
+            ? getDateForUrl(this.props.forecast[0].dt)
+            : this.props.match.params;
+
         const dateProp = `${day}_${month}_${year}`;
 
         const data = this.props.forecast
@@ -87,16 +90,16 @@ class Statistics extends React.Component {
                 </header>
                 <div className={styles.stat_container}>
                     <Slider {...settings}>
-                    <StatisticItem date={dateProp} label='Temperature Statistics' axisY='Temperature' metric='°C'
-                                   data={statistics.tempData}/>
-                    <StatisticItem date={dateProp} label='Pressure Statistics' axisY='Pressure' metric='hPa'
-                                   data={statistics.pressureData}/>
-                    <StatisticItem date={dateProp} label='Humidity Statistics' axisY='Humidity' metric='%'
-                                   data={statistics.humidityData}/>
-                    <StatisticItem date={dateProp} label='Wind Statistics' axisY='Wind Speed' metric='m/s'
-                                   data={statistics.windData}/>
-                    <StatisticItem date={dateProp} label='Cloudness Statistics' axisY='Clouds' metric='%'
-                                   data={statistics.cloudsData}/>
+                        <StatisticItem date={dateProp} label='Temperature Statistics' axisY='Temperature' metric='°C'
+                                       data={statistics.tempData}/>
+                        <StatisticItem date={dateProp} label='Pressure Statistics' axisY='Pressure' metric='hPa'
+                                       data={statistics.pressureData}/>
+                        <StatisticItem date={dateProp} label='Humidity Statistics' axisY='Humidity' metric='%'
+                                       data={statistics.humidityData}/>
+                        <StatisticItem date={dateProp} label='Wind Statistics' axisY='Wind Speed' metric='m/s'
+                                       data={statistics.windData}/>
+                        <StatisticItem date={dateProp} label='Cloudness Statistics' axisY='Clouds' metric='%'
+                                       data={statistics.cloudsData}/>
                     </Slider>
                 </div>
             </div>

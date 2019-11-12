@@ -23,8 +23,8 @@ export const getStringDate = (year, month, day) => {
 export const getDateForUrl = (time) => {
     const date = new Date(time*1000);
     return {
-        year: date.getFullYear(),
+        day: date.getDate(),
         month: date.getMonth() + 1,
-        day: date.getDate()
+        year: date.getFullYear()
     }
 };
