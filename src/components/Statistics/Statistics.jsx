@@ -73,9 +73,11 @@ class Statistics extends React.Component {
             cloudsData: data.map(item => ({time: getTime(item.dt), value: item.clouds.all}))
         });
 
-        const {day, month, year} = this.props.match.params.length === 0
-            ? getDateForUrl(this.props.forecast[0].dt)
-            : this.props.match.params;
+
+        const {day, month, year} = this.props.match.params.year
+            ? this.props.match.params
+            : getDateForUrl(this.props.forecast[0].dt);
+
 
         const dateProp = `${day}_${month}_${year}`;
 
