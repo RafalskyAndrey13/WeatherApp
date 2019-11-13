@@ -19,7 +19,7 @@ const App = (props) => (
                 <Search/>
                 {props.initialized ? <WeatherInfo/> : <Preloader/>}
             </div>}/>
-            <Route exact path='/statistics/:year?/:month?/:day?' render={() => <Statistics initialized={props.initialized}/>}/>
+            <Route path='/statistics/:year?/:month?/:day?' render={() => <Statistics initialized={props.initialized}/>}/>
         </BrowserRouter>
     </div>
 );
