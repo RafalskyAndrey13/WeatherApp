@@ -4,7 +4,7 @@ import {usePosition} from "use-position";
 
 const withLocation = (Component) => {
     return (props) => {
-        const {latitude, longitude} = usePosition(true);
+        const {latitude, longitude} = usePosition();
 
         if (props.onLocationChanged){
             useEffect(() => {
